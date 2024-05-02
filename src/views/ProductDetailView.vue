@@ -14,7 +14,7 @@ const route = useRoute();
 const authStore = useAuthStore();
 const store = useFavoritesStore();
 
-const uri = import.meta.env.VITE_API_ENDPOINT_IMAGES_S3;
+const uri = import.meta.env.VITE_API_ENDPOINT_IMAGES;
 const url = import.meta.env.VITE_API_ENDPOINT_PRODUCTS;
 
 const imageDirectory = ref('');

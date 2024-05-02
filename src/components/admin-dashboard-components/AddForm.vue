@@ -15,7 +15,7 @@ const closeForm = () => {
 };
 
 const uri = import.meta.env.VITE_API_ENDPOINT_PRODUCTS;
-const uriImagesS3 = import.meta.env.VITE_API_ENDPOINT_IMAGES_S3_UPLOAD;
+const uriImages = import.meta.env.VITE_API_ENDPOINT_IMAGES_UPLOAD;
 
 const resetForm = () => {
 	productName.value = "";
@@ -94,7 +94,7 @@ async function uploadImages(productId) {
 	formData.append("file", selectedMainImage.value);
 	try {
 		await axios.post(
-			uriImagesS3 + `/${productId}`,
+			uriImages + `/${productId}`,
 			formData,
 			{
 				headers: {

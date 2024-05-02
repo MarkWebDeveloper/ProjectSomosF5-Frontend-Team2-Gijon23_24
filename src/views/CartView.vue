@@ -28,7 +28,7 @@ watchEffect(() => {
 });
 
 const payWithStripe = () => {
-    if (Object.keys(productCounts.value).length > 1) {
+    if (Object.keys(productCounts.value).length >= 1) {
         router.push('/stripe-checkout');
     }
 }
