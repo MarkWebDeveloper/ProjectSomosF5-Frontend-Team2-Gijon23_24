@@ -55,7 +55,7 @@ onMounted(() => {
             <hr>
             <div class="container">
                 <div id="products_content">
-                    <CartCard v-if="uniqueProducts.length" v-for="(product) in uniqueProducts" :key="product.id" :product="product" :count="productCounts[product.id]" />
+                    <CartCard v-if="uniqueProducts.length" v-for="product in uniqueProducts" :key="product.id" :product="product" :count="productCounts[product.id]" />
                     <span v-if="!uniqueProducts.length">
                 <img src="/icons/warning-icon.svg" alt="warning icon">
                 <p>"Aún no has añadido productos a tu carrito"</p></span>

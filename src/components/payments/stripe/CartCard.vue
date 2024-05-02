@@ -1,11 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+
 const props = defineProps({
   product: Object,
   count: Number
 });
 
-const uri = import.meta.env.VITE_API_ENDPOINT_IMAGES_S3;
+const uri = import.meta.env.VITE_API_ENDPOINT_IMAGES;
 
 const imageDirectory = ref("");
 const isLoading = ref(true);
@@ -19,7 +20,7 @@ function findImageForProduct(product) {
     const defaultImage = "placeholder-image.jpg";
     return defaultImage;
   }
-  return image.url;
+  return image.imageName;
 }
 
 onMounted(async () => {
@@ -32,9 +33,7 @@ onMounted(async () => {
 <template>
   <article>
     <div>
-      <div class="image-container" :style="{
-						'background-image': 'url(' + imageDirectory + ')',
-					}"
+      <div class="image-container" :style="{ 'background-image': `url(${imageDirectory})` }"
 					:alt="product.productName" alt=""></div>
       <div id="product_data">
         <h1> {{ product.productName }}</h1>
@@ -75,7 +74,6 @@ article {
 
 }
 .image-container {
-  background-color: $primary-background;
   background-position: center;
   background-size: contain;
   height: 12em;
